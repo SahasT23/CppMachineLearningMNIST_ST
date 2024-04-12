@@ -141,33 +141,17 @@ void data_handler::split_data()
 
 
 }
-void data_handler::count_classes() // added account classes
+void data_handler::count_classes()
 { // storing the values in a map
   int count = 0;
   for(unsigned i = 0; i < data_array->size(); i++)
   {
-    if(class_map.find(data_array->at(i)->get_label()) == class_map.end()) // finding a key in the map equal to the current label
-    {
-      class_map[data_array->at(i)->get_label()] = count;
-      data_array->at(i)->set_enumerated_label(count);
-      count++;
-    }
+    if
   }
-  num_classes = count;
-  printf("Successfully Extracted %d Unique Classes.\n", num_classes);
 }
 
 uint32_t data_handler::convert_to_little_endian(const unsigned char* bytes);
 
-std::vector<data *> * data_handler::get_training_data()
-{
-  return training_data;
-}
-std::vector<data *> * data_handler::get_test_data()
-{
-  return test_data;
-}
-std::vector<data *> * data_handler::get_validation_data()
-{
-  return validation_data;
-}
+std::vector<data *> * data_handler::get_training_data();
+std::vector<data *> * data_handler::get_test_data();
+std::vector<data *> * data_handler::get_validation_data();
