@@ -56,7 +56,7 @@ void data_handler::read_feature_vector(std::string path) // since data file and 
 void data_handler::read_feature_labels(std::string path)
 {
     uint32_t header[2]; // |MAGIC|NUM IMAGES| order of the 2 elements
-  unsigned char bytes[2]; // All 32 bits can be read in
+  unsigned char bytes[4]; // All 32 bits can be read in
   FILE *f = fopen(path.c_str(), "r");
   if(f) // if the file pointer is not null
   {
@@ -81,7 +81,7 @@ void data_handler::read_feature_labels(std::string path)
         }
       // at the end of this loop, the entire data array will be collected and filled with the feature vectors
     }
-    printf("Successfully read and stored labels.\n", data_array->size());
+    printf("Successfully read and stored labels.\n");
   } else // no file pointer 
   {
     printf("could not find file.\n");
@@ -181,8 +181,8 @@ std::vector<data *> * data_handler::get_validation_data()
 int main()
 {
   data_handler *dh = new data_handler();
-  dh->read_feature_vector("../FILE NAME");
-  dh->read_feature_labels("../FILE_NAME");
+  dh->read_feature_vector("./train-images-idx3-ubyte");
+  dh->read_feature_labels("./train-labels-idx1-ubyte");
   dh->split_data();
   dh->count_classes();
 }
