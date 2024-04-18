@@ -1,5 +1,5 @@
 /*
-implementing the logic to read, split the data, count the number of unique classes
+header file implementing the logic to read, split the data, count the number of unique classes
 and to pass around the test and validation data 
 */
 

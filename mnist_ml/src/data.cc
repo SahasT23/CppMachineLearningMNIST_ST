@@ -1,5 +1,10 @@
 #include "data.hpp"
 
+data::data()
+{
+  feature_vector = new std::vector<uint8_t>; // now I don't need to keep initialising in data_handler.cc
+}
+data::~data()
 void data::set_feature_vector(std::vector<uint8_t> *vect)
 {
   feature_vector = vect;
